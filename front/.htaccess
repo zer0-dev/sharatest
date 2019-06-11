@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^fs/(.*)!(.*).swf$ /fs/$1.swf
+RewriteRule ^fs/(.*)!(.*).png$ /fs/$1.png
+RewriteRule ^fs/(.*)!.swf$ /fs/$1.swf
+RewriteRule ^async/(.*) async.php?method=$1
+</IfModule>
