@@ -4,4 +4,7 @@ RewriteRule ^fs/(.*)!(.*).swf$ /fs/$1.swf
 RewriteRule ^fs/(.*)!(.*).png$ /fs/$1.png
 RewriteRule ^fs/(.*)!.swf$ /fs/$1.swf
 RewriteRule ^async/(.*) async.php?method=$1
+RewriteRule ^vk/ vk.php
+RewriteRule ^restore/ restore.php
+RewriteRule ^restoreMain/ restoreScript.php
 </IfModule>

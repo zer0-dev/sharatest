@@ -155,3 +155,12 @@ document.querySelector('#settings').addEventListener('click',function(){
 	document.querySelector('#menu').setAttribute('style','display:block;animation:menuslide 1s;filter:blur(5px);');
 	document.querySelector('#starter').setAttribute('style','filter:blur(5px);');
 });
+
+function removeVk(){
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET","/api/removeVk.php");
+  xhr.send();
+  xhr.onreadystatechange = function(){
+    window.location.reload();
+  }
+}

@@ -17,8 +17,8 @@ if (isset($_POST["ticket"])) {
 	}
 
 	$a = $user->fetch_assoc();
-	if ($a['roleflags'] == "131086") {
-		$q = $db->query("UPDATE users SET banned = 1 WHERE id = " . $_POST["id"] . ";");
+	if ($a['roleflags'] >= "131086") {
+		$q = $db->query("UPDATE users SET banned = 1,moder_ban='".$a['username']."' WHERE id = " . $_POST["id"] . ";");
 	}
 }
 ?>

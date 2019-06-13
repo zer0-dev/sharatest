@@ -5,7 +5,7 @@ if($_SERVER['HTTP_REFERER'] != 'https://sharatest.ru/' && $_SERVER['HTTP_REFERER
 	return;
 }
 header('Content-Type: text/json');
-define('SALT','salt');
+define('SALT','SALT');
 $db = new mysqli('localhost','root','','');
 $res = ['response' => '','error' => []];
 if($_GET['mode'] == 'true'){
@@ -29,7 +29,7 @@ if($_GET['mode'] == 'true'){
 		$res['error'][] = 'Пароль должен быть не короче 6 и не длиннее 14 символов';
 	}
 	if(empty($res['error'])){
-	if($db->query("INSERT INTO users (username,password,token,regdate,inv) VALUES ('".$username."','".$password."','".$token."','".$regdate."',':.$inv.')")){
+	if($db->query("INSERT INTO users (username,password,token,regdate,inv,house_str) VALUES ('".$username."','".$password."','".$token."','".$regdate."','.$inv.','')")){
 		$res['response'] = 'ok';
 	} else{
 		$res['error'][] = $db->error;
@@ -54,6 +54,7 @@ if($_GET['mode'] == 'true'){
 		$token = 'token';
 		$db->query("UPDATE users SET token='".$token."' WHERE id=".$u['id']);
 		$_SESSION['token'] = $token;
+		$_SESSION['uid'] = $u['id'];
 		$res['response'] = 'ok';
 	}
 }
