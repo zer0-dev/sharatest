@@ -26,10 +26,7 @@ if(!isset($_SESSION['token'])){
 <br>
 По всем вопросам можно обратиться в группу ВК или на почту: support@sharatest.ru
 <br>
-<div style="color:red;">Вы можете поддержать проект материально <a href="https://www.donationalerts.com/r/sharatest" style="text-decoration:underline;color:red;" target="_blank">здесь</a></div>
-<br>
-<div style="color:red;">Набор в модераторы до 12 июня! <a href="https://vk.com/wall-182959723_403" style="text-decoration:underline;color:red;" target="_blank">Подробнее</a></div></div></div>
-<br>
+<div style="color:red;">Вы можете поддержать проект материально <a href="https://www.donationalerts.com/r/sharatest" style="text-decoration:underline;color:red;" target="_blank">здесь</a></div></div>
 <embed type="application/x-shockwave-flash" src="base.swf?v=3" style="width: 100%;height:100%;" flashvars="game_server=https%3A%2F%2Fsharatest.ru%2F&url_path_server=https%3A%2F%2Fsharatest.ru%2F&portal_url=https%3A%2F%2Fsharatest.ru%2F&manual_server_selection=1&start_step=0&useHashInName=">
 <center><p id="sub">Создано на основе открытого исходного кода <a href="https://github.com/da15y/daisydale" target="_blank">DaisyDale</a>. Все права на ресурсы принадлежат <a href="http://www.nw-media.ru/" target="_blank">ООО «Новые Медиа»</a></p></center>
 <?php
