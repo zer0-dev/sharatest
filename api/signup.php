@@ -29,7 +29,7 @@ if($_GET['mode'] == 'true'){
 		$res['error'][] = 'Пароль должен быть не короче 6 и не длиннее 14 символов';
 	}
 	if(empty($res['error'])){
-	if($db->query("INSERT INTO users (username,password,token,regdate,inv,house_str) VALUES ('".$username."','".$password."','".$token."','".$regdate."','.$inv.','')")){
+	if($db->query("INSERT INTO users (username,password,token,regdate,inv,house_str,house_inv) VALUES ('".$username."','".$password."','".$token."','".$regdate."','.$inv.','','ID>3676|AObjectTypeId>1|AObjectId>3676|AObjectRefTypeId>20|MediaResourceID>10223|TextResourceID>10641|IsActive>0')")){
 		$res['response'] = 'ok';
 	} else{
 		$res['error'][] = $db->error;
