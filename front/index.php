@@ -22,6 +22,7 @@
    <div class="window">
    </div>
   </div>
+  <input type="hidden" value="" id="token">
   <?php
   $msgs = [
     'Страница ВКонтакте успешно привязана','Страница ВКонтакте уже привязана к одному из аккаунтов','Новый пароль выслан в сообщении ВКонтакте'
@@ -29,5 +30,13 @@
   if($_GET['msg'] != '') echo '<script>alert("'.$msgs[$_GET['msg']].'"); window.location = "https://sharatest.ru";</script>';
    ?>
   <script src="script.min.js?<?php echo filectime('script.min.js');?>"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdT_qgUAAAAAGbbQuN3reCP0w1J_bAZxZeqP-QU"></script>
+  <script>
+  grecaptcha.ready(function() {
+      grecaptcha.execute('6LdT_qgUAAAAAGbbQuN3reCP0w1J_bAZxZeqP-QU', {action: 'homepage'}).then(function(token) {
+        document.querySelector('#token').value = token;
+      });
+  });
+  </script>
  </body>
 </html>

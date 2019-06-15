@@ -1,5 +1,5 @@
 <?php
-session_start(); ini_set('display_errors', 1);
+session_start();
 if($_SERVER['HTTP_REFERER'] != 'https://sharatest.ru/' && $_SERVER['HTTP_REFERER'] != 'https://localhost/' && $_SERVER['HTTP_REFERER'] != 'https://217.182.75.16/' && $_SERVER['HTTP_REFERER'] != 'http://sharatest.ru/' && $_SERVER['HTTP_REFERER'] != 'http://localhost/' && $_SERVER['HTTP_REFERER'] != 'http://217.182.75.16/'){
 	echo 'forbidden';
 	return;
@@ -57,6 +57,20 @@ if($_GET['mode'] == 'true'){
 		$_SESSION['uid'] = $u['id'];
 		$res['response'] = 'ok';
 	}
+}
+$ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, [
+	'secret' => 'secret',
+	'response' => $_GET['token']
+]);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$cap = json_decode(curl_exec($ch));
+if($cap->score == 0){
+	$res['error'][] = 'bot detected';
+	unset($_SESSION['token']);
 }
 echo json_encode($res);
 ?>
